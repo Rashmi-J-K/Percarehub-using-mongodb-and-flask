@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}View Health Records{% endblock %}
+
+{% block content %}
+<h1>Health Records</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Pet ID</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in health_records %}
+        <tr>
+            <td>{{ record.pet_id }}</td>
+            <td>{{ record.date.strftime('%Y-%m-%d') }}</td>
+            <td>{{ record.description }}</td>
+            <td>
+                <a href="{{ url_for('edit_health_record', record_id=record._id) }}" class="btn btn-primary btn-sm">Edit</a>
+                <form action="{{ url_for('delete_health_record', record_id=record._id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

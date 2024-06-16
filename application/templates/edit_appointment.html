@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Edit Appointment{% endblock %}
+
+{% block content %}
+<h1>Edit Appointment</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.pet_id.label }}<br>
+        {{ form.pet_id(size=32) }}<br>
+        {% for error in form.pet_id.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.date.label }}<br>
+        {{ form.date(size=32) }}<br>
+        {% for error in form.date.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(size=32) }}<br>
+        {% for error in form.description.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

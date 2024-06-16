@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container" style="background-color: #f0f0f0; padding: 20px;">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Welcome to the Pet Management System</h1>
+            <p>Welcome to our Pet Management System! Our system is designed to help pet owners manage various aspects of their pets' care, including health records, appointments, nutrition, and more.</p>
+    <p>With our user-friendly interface, you can easily register your pets, schedule appointments with veterinarians, keep track of important health records, and monitor their nutrition intake.</p>
+    <p>Our goal is to provide pet owners with a convenient and efficient way to organize and manage their pets' well-being. Whether you're a pet owner, a veterinarian, or a pet care professional, our system is here to streamline the pet care process for you.</p>
+    <p>Thank you for choosing our Pet Management System!</p>
+            <p><a href="{{ url_for('contact_us') }}" class="btn btn-primary">Contact Us</a></p>
+        </div>
+    </div>
+    <div class="row justify-content-end fixed-bottom mb-3 mr-3">
+        <div class="col-md-6 text-right">
+            <a href="{{ url_for('view_hub') }}" class="btn btn-primary">View Records</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

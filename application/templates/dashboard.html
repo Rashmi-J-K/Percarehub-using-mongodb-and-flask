@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <h2>Welcome, {{ current_user.empid }}!</h2>
+    
+    <!-- Display registered pets -->
+    <h3>Your Registered Pets</h3>
+    {% if pets %}
+        <ul>
+            {% for pet in pets %}
+                <li>{{ pet.name }} (ID: {{ pet._id }}) - Age: {{ pet.age }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no registered pets.</p>
+    {% endif %}
+    
+    <!-- Display upcoming appointments -->
+    <h3>Upcoming Appointments</h3>
+    {% if appointments %}
+        <ul>
+            {% for appointment in appointments %}
+                <li>Pet ID: {{ appointment.pet_id }} - Date: {{ appointment.date }} - Purpose: {{ appointment.purpose }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no upcoming appointments.</p>
+    {% endif %}
+    
+{% endblock %}
